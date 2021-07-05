@@ -19,7 +19,6 @@ NEWSPIDER_MODULE = 'auto_invoice.spiders'
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = True
 
-RETRY_TIMES = 0
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 #CONCURRENT_REQUESTS = 32
