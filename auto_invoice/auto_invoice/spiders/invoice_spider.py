@@ -1,8 +1,11 @@
-from builtins import breakpoint
 from pprint import pprint
 
 import scrapy
 from scrapy.http import FormRequest
+
+from dotenv import dotenv_values
+
+config = dotenv_values(".env")
 
 
 class InvoiceSpider(scrapy.Spider):
@@ -11,8 +14,8 @@ class InvoiceSpider(scrapy.Spider):
     def start_requests(self):
         yield FormRequest(url='https://invoice.husky.io/sessions',
                           formdata={
-                              "email": "felipejpa15@gmail.com",
-                              "password": "=n6dBBAaoa9fd_y<^CgoE?T[.a}Sx)$bkt53c]3\\"},
+                              "email": config["EMAIL"],
+                              "password": config["PASSWORD"]},
                           callback=self.login_callback)
 
     def login_callback(self, response):
@@ -23,9 +26,9 @@ class InvoiceSpider(scrapy.Spider):
         invoice_from_address = response.css('textarea#invoice_from_address::text').get().strip()
         authenticity_token = response.css('input[name="authenticity_token"]::attr(value)').get()
 
-        to = "Consumers Unified, LLC"
-        to_email = "felipejpa15@gmail.com"
-        to_address = "297 Kingsbury Grade, Suite 1025, Mailbox 4470 Stateline, NV 89449-4470"
+        to = config["TO"]
+        to_email = config["TO_EMAIL"]
+        to_address = config["TO_ADDRESS"]
 
         formdata = {
             "utf8": "\u2713",
@@ -36,9 +39,9 @@ class InvoiceSpider(scrapy.Spider):
             "invoice[to]": to,
             "invoice[to_email]": to_email,
             "invoice[to_address]": to_address,
-            "invoice[services_attributes][0][description]": "Software development",
-            "invoice[services_attributes][0][currency]": "USD",
-            "invoice[services_attributes][0][value]": "31250.00",
+            "invoice[services_attributes][0][description]": config["SERVICE_DESCRIPTION"],
+            "invoice[services_attributes][0][currency]": config["SERVICE_CURRENCY"],
+            "invoice[services_attributes][0][value]": config["SERVICE_VALUE"],
         }
 
         self.logger.info("Information sent to generate invoice: \n")
@@ -53,6 +56,6 @@ class InvoiceSpider(scrapy.Spider):
 
     def invoice_sent_callback(self, response):
         if response.status == 200:
-            self.logger.info('Invoice sent successfully!')
+            self.logger.info('\n\n\nInvoice sent successfully!\n\n\n')
         else:
-            self.logger.info('Invoice NOT sent! :\'(')
+            self.logger.info('\n\n\nInvoice NOT sent! :\'(  \n\n\n')
