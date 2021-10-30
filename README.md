@@ -1,13 +1,12 @@
 # auto-invoice
 
-The objective of this project is easily generate an invoice on [husky.io](https://husky.io)
+The objective of this project is generate an invoice on [husky.io](https://husky.io) using 1 command
 
-## dependencies
+## Dependencies
 
 You need to install `pipenv` since this project use it to handle Python dependencies 
 
-Installation
-------------
+## Installation
 
 If you\'re using Debian Buster+:
 
