@@ -36,6 +36,8 @@ cp auto_invoice/.env.example auto_invoice/.env
 
 So you can fill the sensitive data in `auto_invoice/.env`
 
+## Run
+
 Once you are done with filling the data you can run
 
 `make invoice`
