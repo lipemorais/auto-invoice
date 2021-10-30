@@ -1,6 +1,6 @@
 # auto-invoice
 
-The objective of this project is easily generate an invoice on [husky.io](husky.io)
+The objective of this project is easily generate an invoice on [husky.io](https://husky.io)
 
 ## dependencies
 
