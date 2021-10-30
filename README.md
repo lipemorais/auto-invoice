@@ -6,7 +6,7 @@ The objective of this project is generate an invoice on [husky.io](https://husky
 
 You need to install `pipenv` since this project use it to handle Python dependencies 
 
-## Installation
+### pipenv installation
 
 If you\'re using Debian Buster+:
 
