@@ -2,6 +2,33 @@
 
 The objective of this project is easily generate an invoice on [husky.io](husky.io)
 
+## dependencies
+
+You need to install `pipenv` since this project use it to handle Python dependencies 
+
+Installation
+------------
+
+If you\'re using Debian Buster+:
+
+    $ sudo apt install pipenv
+
+Or, if you\'re using Fedora:
+
+    $ sudo dnf install pipenv
+
+Or, if you\'re using FreeBSD:
+
+    # pkg install py36-pipenv
+
+Or, if you\'re using Mac OS:
+
+    $ brew install pipenv
+
+Or, if you\'re using Windows:
+
+    # pip install --user pipenv
+
 ## Setup
 To set up the project you need to make a copy of `auto_invoice/.env.example`
 ```bash
