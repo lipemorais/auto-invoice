@@ -4,8 +4,9 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-scrapy = "*"
+scrapy = ">=2.5."
 python-dotenv = "*"
+passlib = "*"
 
 [dev-packages]
 
